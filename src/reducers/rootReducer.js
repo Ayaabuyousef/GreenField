@@ -3,16 +3,11 @@ const initState = {
         { username: "ahamd", password: "123"}
     ],
     showMenu: "hide",
-<<<<<<< HEAD
-    showsetting:"hide"
-
-=======
     showSearch: "hide",
     showSettings:"hide",
     showSign: "hide",
     Games: [],
     GameIndex: -1
->>>>>>> 8b98a552636a1a1031ed9df2d7a0dfe721ce60da
 }
 
 const rootReducer = (state = initState, action) => {
@@ -23,12 +18,6 @@ const rootReducer = (state = initState, action) => {
             showMenu: action.showMenu
         }
     }
-<<<<<<< HEAD
-    else if (action.type === "SHOW_setting") {
-        return {
-            ...state,
-            showsetting: action.showsetting
-=======
     if (action.type === "SHOW_SEARCH") {
         return {
             ...state,
@@ -57,7 +46,6 @@ const rootReducer = (state = initState, action) => {
         return  {
             ...state,
             GameIndex: action.GameIndex
->>>>>>> 8b98a552636a1a1031ed9df2d7a0dfe721ce60da
         }
     }
     return state;

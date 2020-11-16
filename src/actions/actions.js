@@ -4,13 +4,6 @@ export const showMenu = (z) => {
         showMenu: z
     }
 }
-<<<<<<< HEAD
-
-export const showsetting = (z) => {
-    return {
-        type: 'SHOW_setting',
-        showsetting: z
-=======
 export const showSearch = (z) => {
     return {
         type: 'SHOW_SEARCH',
@@ -39,6 +32,5 @@ export const saveGameIndex = (z) => {
     return {
         type: 'SAVE_GAME_INDEX',
         GameIndex: z
->>>>>>> 8b98a552636a1a1031ed9df2d7a0dfe721ce60da
     }
 }
