@@ -1,44 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu, showSearch, showSettings } from '../actions/actions.js';
+import { showMenu, showSearch, showSettings, showSign } from '../actions/actions.js';
 
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
 
+    componentDidMount() {
+        if (localStorage.getItem('gamesio')) {
+            this.props.sign(1);
+        }
+    }
   handleMenu = () => {
-    this.props.settings("hide")
-    if (this.props.showMenu === "hide") {
-      this.props.menu("show");
+    this.props.settings(0)
+    if (this.props.showMenu) {
+      this.props.menu(0);
     }
     else {
-      this.props.menu("hide");
+      this.props.menu(1);
     }
   }
   handleSearch = () => {
-    if (this.props.showSearch === "hide") {
-      this.props.search("show");
+    if (this.props.showSearch) {
+      this.props.search(0);
     }
     else {
-      this.props.search("hide");
+      this.props.search(1);
     }
   }
 
   handleSettings=()=>{
-    if (this.props.showSettings === "hide") {
-        this.props.settings("show");
+    if (this.props.showSettings) {
+        this.props.settings(0);
     }
     else {
-        this.props.settings("hide");
+        this.props.settings(1);
     }
   }
 
   render() {
     return (
       <div className="menu" >
-        <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></input>
+        <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
 
-        <nav id="img-logo" className="menu" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
+        <nav id="img-logo" className="menu" style={{ display: this.props.showMenu ? "" : "none" }} >
 
           <input type="image" className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleMenu}></input>
 
@@ -47,25 +57,30 @@ class NavBar extends Component {
           </Link >
 
           <Link to="/signin">
-            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign === "show" ? "none" : "" }} src="./media/signin.png"></input>
+            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signin.png"></input>
           </Link>
 
           <Link to="/signup">
-            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign === "show" ? "none" : "" }} src="./media/signup.png"></input>
+            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signup.png"></input>
+          </Link>
+
+          <Link to="/addgame">
+            <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" }} src="./media/addgame.png"></input>
           </Link>
 
           <Link to="/signout">
-            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign === "show" ? "" : "none" }} src="./media/signout.png"></input>
+            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout.png"></input>
           </Link>
 
           <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
 
+
           <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
           
-          <input type="serach" className="settingsitem" style={{ display: this.props.showSearch === "show" ? "" : "none" }} ></input>
+          <input type="serach" className="settingsitem" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
 
         </nav>
-          <div className ='settings column' style={{ display: this.props.showSettings === "show" ? "" : "none" }}>
+          <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
             <Link to="/colors">
             <button className ='settingsitem'>Colors</button>
@@ -93,7 +108,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     menu: (z) => { dispatch(showMenu(z)) },
     search: (z) => { dispatch(showSearch(z)) },
-    settings: (z) => { dispatch(showSettings(z)) }
+    settings: (z) => { dispatch(showSettings(z)) },
+    sign: (z) => { dispatch(showSign(z)) }
   }
 }
 
