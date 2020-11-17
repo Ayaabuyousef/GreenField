@@ -1,10 +1,13 @@
-body {
+html{
+  min-height: 600px;
+}
+body{
     background-image: url('media/neon.jpg');
     background-color: purple;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    min-height: 100%;
+    min-height: 600px;
 }
 .button{
     border: 4px groove purple;
@@ -112,12 +115,49 @@ input:hover, textarea:hover, button:hover{
   border-image: url(https://cdn.mos.cms.futurecdn.net/XNkFV6uyYBeX5NLwjnomig.jpg) 50 round;
 }
 .gameinfo{
-  background-color:grey;
+  background-color: rgb(33, 33, 33);
   height: 100%;
+  text-align: center;
+  color: grey;
+  border-radius: 12px;
 }
 .gameimg{
-    height: 45vh;
+    height: 46vh;
     width: 100%;
+    border-radius: 12px;
+}
+.disc{
+  margin-top: 3vw;
+}
+.tower{
+  width:24vw;
+  height: 80vh;
+  margin-top: 10vh;
+}
+.fire{
+  width: 5vw;
+  height: 1vh;
+  margin-right: 19vw;
+  
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYY8g-k8VnFbLCnn0mUMVnYRWWrTAiW0M4FA&usqp=CAU");
+  
+ 
+}
+.lastfire{
+  width: 5vw;
+  height: 1vh;
+
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYY8g-k8VnFbLCnn0mUMVnYRWWrTAiW0M4FA&usqp=CAU");
+}
+.fires{
+  position: fixed;
+  z-index: 10;
+  top: 25vh;
+  left: 10.7vw;
+  height: 55vh;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
 }
 
   .each-slide > div {
