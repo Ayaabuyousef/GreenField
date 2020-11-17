@@ -101,11 +101,15 @@ input:hover, textarea:hover, button:hover{
 .gameitem{
     display: inline-block;
     width: 45vw;
-    height: 50vh;
+    height: 60vh;
     margin: 1vw;
-    padding: 10px;
     cursor: pointer;
-    border: 5px solid purple;
+    border: 30px dotted ;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-right: 30px;
+    padding-left: 80px;
+  border-image: url(https://cdn.mos.cms.futurecdn.net/XNkFV6uyYBeX5NLwjnomig.jpg) 50 round;
 }
 .gameinfo{
   background-color:grey;
@@ -156,19 +160,3 @@ footer {
     right: 0;
     bottom: 0;
 }
-<<<<<<< HEAD
-#menu{
-  position:fixed;
-  top: 0;
-  left: 0;
-} 
-.nav{
-  background-color: violet;
-  border: 3px groove purple;
-  border-radius: 90px;
-  height: 50px;
-  width: 50px;
-  outline: none;
-}
-=======
->>>>>>> 8b98a552636a1a1031ed9df2d7a0dfe721ce60da
